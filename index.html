@@ -1,0 +1,62 @@
+<!doctype html><html><head>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script src="./js/sha.js"></script>
+  <script src="./js/hotp.js"></script>
+  <script src="./js/index.js"></script>
+</head><body onload="onDocumentLoaded()">
+  <div id="main">
+    <h1>RFC4226 Timed One-Time Password (TOTP)</h1>
+    <h2>Inputs</h2>
+    <span class="otp-field">
+      <label for="otp-secret-base32">Secret (BASE32 text)</label>
+      <input id="otp-secret-base32" type="text" maxlength="30" value="DBYIA4NT3T2RH4" title="BASE32 can contain characters A-Z and 2-9."/>
+      <input type="button" id="randomize-secret" value="randomize" title="Generate a new random secret with 6 to 16 BASE32 characters."/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-period">TPOP refresh period</label>
+      <input id="otp-period" type="text" maxlength="3" value="30" title="Refresh period of the timed one-time password."/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-num-digits">TPOP number of digits</label>
+      <input id="otp-num-digits" type="text" maxlength="2" value="6" title="Number of digits that the OTP shall have."/>
+    </span>
+    <span class="otp-field">
+      <span id="otp-error-message" class="hidden"></span>
+    </span>
+    <hr/>
+    <h2>Outputs</h2>
+    <span class="otp-field">
+      <label for="otp-expected">Expected One-Time password</label>
+      <input id="otp-expected" type="text" value="######" title="Shown here is the password that is expected to be entered by the user." readonly/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-timeleft">Time left until refresh</label>
+      <input id="otp-timeleft" type="text" value="" title="Number of seconds until a new OTP is valid." readonly/>
+    </span>
+    <hr/>
+    <h2>Intermediate results</h2>
+    <span class="otp-field">
+      <label for="otp-current-timestamp">Current Unix Timestamp</label>
+      <input id="otp-current-timestamp" type="text" value="" title="Timestamp used to calculate the TOTP. Client and server clocks must be sufficiently correct." readonly/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-counter">Calculated counter value</label>
+      <input id="otp-counter" type="text" value="" title="Counter based on the timestamp" readonly/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-secret-bytes">Base32 decoded secret</label>
+      <input id="otp-secret-bytes" type="text" value="" title="The 5bit text representation converted into a byte array." readonly/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-counter-padded">Calculated padded counter</label>
+      <input id="otp-counter-padded" type="text" value="" title="Counter based on the timestamp" readonly/>
+    </span>
+    <span class="otp-field">
+      <label for="otp-hmac">Calculated HMAC</label>
+      <input id="otp-hmac" type="text" value="" title="SHA1 HMAC calculated from secret and the counter" readonly/>
+    </span>
+  </div>
+  <span class="otp-foot-annotation">
+    +++ Hover fields for tool-tip information +++
+  </span>
+</body></html>

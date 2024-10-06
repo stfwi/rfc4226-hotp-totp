@@ -1,0 +1,13 @@
+
+## rfc4226-hotp-totp Licenses
+
+#### Dependencies
+
+  - sha.js: BSD License, http://caligatio.github.com/jsSHA/
+    sha.js polyfill: http://www.apache.org/licenses/LICENSE-2.0
+
+#### Repository main code
+
+  - index.js, hotp.js, index.css, index.html: MIT (https://opensource.org/license/mit)
+
+  - Documentation: CC-BY-SA (https://creativecommons.org/licenses/by-sa/4.0/)
